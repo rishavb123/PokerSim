@@ -3,8 +3,10 @@ import logging
 from experiment_lab.core import BaseExperiment
 
 from pokersim.experiment.config import PokerConfig
+from pokersim.game.objects import Card
 
 logger = logging.getLogger(__name__)
+
 
 class PokerExperiment(BaseExperiment):
 
@@ -19,3 +21,6 @@ class PokerExperiment(BaseExperiment):
         self, run_id: str, run_output_path: str, seed: int | None = None
     ) -> Any:
         logger.info("RUNNING POKER EXPERIMENT")
+
+        card = Card.of_string("10H")
+        logger.info(f"card: {str(card)}")

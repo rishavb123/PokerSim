@@ -3,7 +3,7 @@ from enum import Enum
 import random
 
 
-class Value:
+class Value(Enum):
     ACE = 1
     TWO = 2
     THREE = 3
@@ -20,10 +20,10 @@ class Value:
 
 
 class Suit(Enum):
-    SPADES = 0
-    CLUBS = 1
-    DIAMONDS = 2
-    HEARTS = 3
+    SPADES = "S"
+    CLUBS = "C"
+    DIAMONDS = "D"
+    HEARTS = "H"
 
 
 class Card:
@@ -31,6 +31,29 @@ class Card:
     def __init__(self, value: Value, suit: Suit) -> None:
         self.value = value
         self.suit = suit
+
+    @staticmethod
+    def of_string(card_string: str) -> "Card":
+        value = Value(
+            int(
+                card_string[:-1]
+                .replace("A", "1")
+                .replace("J", "11")
+                .replace("Q", "12")
+                .replace("K", "13")
+            )
+        )
+        suit = Suit(card_string[-1])
+        return Card(value, suit)
+
+    def __str__(self) -> str:
+        value_string = str(self.value.value)
+        if value_string == "1":
+            value_string = "A"
+        return (
+            value_string.replace("11", "J").replace("12", "Q").replace("13", "K")
+            + self.suit.value
+        )
 
 
 class Deck:
