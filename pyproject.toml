@@ -1,0 +1,25 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 61.0.0"]
+
+[project]
+name = "pokersim"
+description = "Writing a generic simulation framework to train genetic algorithms in arbitrary multi-agent environments."
+keywords = []
+authors = [{ name = "Rishav Bhagat", email = "rishavbhagat.cs@gmail.com" }]
+readme = "README.md"
+dynamic = ["version"]
+requires-python = ">=3.11"
+dependencies = ["experiment-lab"]
+
+[project.urls]
+Repository = "https://github.com/rishavb123/PokerSim"
+
+[project.optional-dependencies]
+all = []
+dev = ["black"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pokersim*"]
+namespaces = false
