@@ -1,0 +1,1 @@
+python pokersim/experiment/main.py $*

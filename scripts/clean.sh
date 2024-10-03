@@ -1,0 +1,1 @@
+rm -rf outputs pokersim/__pycache__ pokersim.egg-info

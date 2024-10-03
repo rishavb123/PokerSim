@@ -1,0 +1,10 @@
+experiment_name: poker_experiment
+n_runs: 1
+n_run_method: series
+seed: 0
+wandb:
+    project: poker
+    mode: disabled
+defaults:
+    - poker_config
+    - _self_
